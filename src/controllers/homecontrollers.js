@@ -7,18 +7,20 @@ const gethome_page = (req,res) => {
   return  res.render('../views/home.ejs')
 }
 const CreateUser = (req,res) => {
-  console.log('chack req.body',req.body)
-  res.send('Da them user')
+  console.log(req.body)
+  let email = req.body.Email
+  let name = req.body.Name
+  let city = req.body.City
+  
+  
+  connection.query(
+    `INSERT INTO Users (email,name,city) VALUES (?, ?, ?)`,
+    [email,name,city],
+    function(err,results){
+        res.send("user create suceed!")
+    }
+  )
+  
+
 }
-let Users = []
-const getuser_page= (req,res) => {
-    connection.query(
-        'select * from Users',
-          function (err,result,field){
-            Users = result
-            console.log("result= ",result)
-            res.send(JSON.stringify(Users))
-          }
-        )
-}
-module.exports ={getHoidanIT_page , gethome_page , getuser_page , CreateUser} 
+module.exports ={getHoidanIT_page , gethome_page , CreateUser} 

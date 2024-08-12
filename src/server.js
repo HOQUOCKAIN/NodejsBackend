@@ -10,7 +10,7 @@ const app = express()
 const port = process.env.PORT||8081
 const hostname = process.env.HOST_NAME
 
-// lay input tu html req.body
+// Cau hinh req.body de lay input tu html
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
