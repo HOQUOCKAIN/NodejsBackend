@@ -1,12 +1,13 @@
 const path = require('path')
 const express = require('express')
-const {getHoidanIT_page , gethome_page , getuser_page ,CreateUser } = require('../controllers/homecontrollers.js')
+const { gethome_page , CreateUser ,get_create_news_user , get_about_page} = require('../controllers/homecontrollers.js')
 const router = express.Router()
 
 
-router.get('/hoidanit',  getHoidanIT_page)
-router.get('/sample1', gethome_page)
+
 router.get('/homepage', gethome_page)
+router.get('/create',get_create_news_user)
+router.get('/about',get_about_page)
 router.post('/CreateUser', CreateUser)
 
 module.exports = router;

@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended : true}))
 
 // config teanplates +  config static file
 configView_Engine(app)
-app.use('/test',webrouter)
+app.use('',webrouter)
 
 
 

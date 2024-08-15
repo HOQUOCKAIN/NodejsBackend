@@ -1,26 +1,32 @@
+const { render } = require('ejs')
 const connection = require('../config/database.js')
+const mysql = require('mysql2/promise')
 
-const getHoidanIT_page = (req,res) => {
-    res.render('../views/sample.ejs')
-}
 const gethome_page = (req,res) => {
-  return  res.render('../views/home.ejs')
+  res.render('../views/home.ejs')
 }
-const CreateUser = (req,res) => {
+
+const get_create_news_user =(req ,res) => {
+   res.render('../views/create.ejs')
+}
+
+const get_about_page = (req , res) => {
+ res.render('../views/about.ejs')
+}
+const  CreateUser = async (req,res) => {
   console.log(req.body)
   let email = req.body.Email
   let name = req.body.Name
   let city = req.body.City
   
   
-  connection.query(
-    `INSERT INTO Users (email,name,city) VALUES (?, ?, ?)`,
-    [email,name,city],
-    function(err,results){
-        res.send("user create suceed!")
-    }
-  )
+
   
+    let [results,fields] = await connection.query(
+      `INSERT INTO Users (email,name,city) VALUES (?, ?, ?)`,[email,name,city],
+      
+  )
+  res.send('add user succeed!')
 
 }
-module.exports ={getHoidanIT_page , gethome_page , CreateUser} 
+module.exports ={ gethome_page , CreateUser  , get_create_news_user , get_about_page} 
