@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <%=JSON.stringify(userEdit)%>
+        <div class="topnav">
+            <a href="/homepage">Home</a>
+            <a href="/create">Create user</a>
+        </div>
+        <div>
+            <div class="update-a-uesr"> </div> <!-- lay data tu form gui len server thong qua req.body-->
+            <form action=/update-user method="POST">
+                <fieldset> update a user
+                    <div class="input-group d-none">
+                        <label>UserID:</label>
+                        <input tyle="text" name="Id" value="<%=userEdit.id%>" />
+                    </div>
+                    <div class="input-group">
+                        <label>Email:</label>
+                        <input tyle="text" name="Email" value="<%=userEdit.email%>" />
+                    </div>
+                    <div class="input-group">
+                        <label>Name:</label>
+                        <input tyle="text" name="Name" value="<%=userEdit.name%>" />
+                    </div>
+                    <div class="input-group">
+                        <label>City:</label>
+                        <input tyle="text" name="City" value="<%=userEdit.city%>" />
+                    </div>
+                    <div>
+                        <button>Save</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        </div>
+</body>
+
+</html>

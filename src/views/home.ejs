@@ -1,56 +1,55 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
+
+</head>
+
 <body>
-    <div class="topnav">
-        <a class="active" href="homepage">Home</a>
-        <a href="create">Create user</a>
-        <a href="about">About</a>
-    </div>
+  <div class="topnav">
+    <a class="active" href="/homepage">Home</a>
+    <a href="/create">Create User</a>
+  </div>
+  <div class="table-container">
+    <div class="title"> List User</div>
+
     <table>
-        <caption>
-          Front-end web developer course 2021
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Person</th>
-            <th scope="col">Most interest in</th>
-            <th scope="col">Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Chris</th>
-            <td>HTML tables</td>
-            <td>22</td>
-          </tr>
-          <tr>
-            <th scope="row">Dennis</th>
-            <td>Web accessibility</td>
-            <td>45</td>
-          </tr>
-          <tr>
-            <th scope="row">Sarah</th>
-            <td>JavaScript frameworks</td>
-            <td>29</td>
-          </tr>
-          <tr>
-            <th scope="row">Karen</th>
-            <td>Web performance</td>
-            <td>36</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th scope="row" colspan="2">Average age</th>
-            <td>33</td>
-          </tr>
-        </tfoot>
-      </table>
-      
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Actions</th>
+      </tr>
+      <% listUsers.forEach(function(user){%>
+        <tr>
+          <td>
+            <%=user.id%>
+          </td>
+          <td>
+            <%=user.email%>
+          </td>
+          <td>
+            <%=user.name%>
+          </td>
+          <td>
+            <%=user.city%>
+          </td>
+          <td>
+            <a href="edit/<%=user.id%>"> Edit</a>
+            <button>Delete</button>
+          </td>
+        </tr>
+        <%})%>
+
+    </table>
+  </div>
+
+
 </body>
+
 </html>
